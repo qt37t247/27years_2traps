@@ -10,8 +10,16 @@ The analyses of this work is inspired by:
 Müller, J., Hothorn, T., Yuan, Y., Seibold, S., Mitesser, O., Rothacher, J., ... & Menzel, A. (2023). Weather explains the decline and rise of insect biomass over 34 years. Nature, 1-6.
 
 ## Step 1. Environmental data collection
-In this study, we collected 
+We collected air quality data from Socioeconomic Data and Applications Center:
 
+https://sedac.ciesin.columbia.edu/
+
+We used the R code ("crop.R" and "extract.R") to extract environmental variables at the sampling points.
+
+
+We collected other environmental variables from Google Earth Engine (with the python package geemap https://geemap.org/). See python script ("GEE_collect.ipynb").
+
+The environemental variables are then compiled for the subseqeuent modeling with R ("Data_process.R")
 
 
 ## Step 2. 
