@@ -29,6 +29,6 @@ We combined insect count data with the environmental variables ("Data_build.R").
 
 This resulting the file ("master.csv") for the subsequent GAM.
 
-We deviced six-stepped modelling ("Model_GAM.R") with each step adding additional complexity in the models. 
+In R, we deviced six-stepped modelling ("Model_GAM.R") with each step adding additional complexity in the models. 
 
 
