@@ -16,21 +16,22 @@ We averaged the trap catches to estimate the monthly average number of moths per
 
 
 ## Step 2. Environmental data collection
+
+Geographic locations of traps are in "**Sites.csv**".
+
 We collected air quality data from Socioeconomic Data and Applications Center:
 
 https://sedac.ciesin.columbia.edu/
 
-Geographic locations of traps are in "Sites.csv".
+We downloaded the rasters and extracted values of environmental variables at the sampling localities (see an example in "**crop_extract.R**"). 
 
-We downloaded the rasters and extracted values of environmental variables at the sampling localities (see an example in "crop_extract.R"). 
+We extracted other environmental variables (light, vegetation, precipitation, and temperature) from Google Earth Engine (with the python package geemap https://geemap.org/). See python script ("**GEE_collect.ipynb**").
 
-We extracted other environmental variables (light, vegetation, precipitation, and temperature) from Google Earth Engine (with the python package geemap https://geemap.org/). See python script ("GEE_collect.ipynb").
+The extracted data from Google Earth Engine was then processed with R ("**Data_process.R**").
 
-The extracted data from Google Earth Engine was then processed with R ("Data_process.R").
+We collected resulting environmental variables (in csv format) and compile them with the count data (see "**Data_build.R**") to create a master sheet. 
 
-We collected resulting environmental variables (in csv format) and compile them with the count data (see "Data_build.R") to create a master sheet. 
-
-The master sheet ("master.csv") was served as the input of the subseqeuent modeling.
+The master sheet ("**master.csv**") was served as the input of the subseqeuent modeling.
 
 
 ## Step 3. Generalized additive mixed modelling (GAM)
