@@ -19,9 +19,7 @@ We averaged the trap catches to estimate the monthly average number of moths per
 
 Geographic locations of traps are in "**Sites.csv**".
 
-We collected air quality data from Socioeconomic Data and Applications Center:
-
-https://sedac.ciesin.columbia.edu/
+We collected air quality data from NASA Socioeconomic Data and Applications Center.
 
 We downloaded the rasters and extracted values of environmental variables at the sampling localities (see an example in "**crop_extract.R**"). 
 
