@@ -12,7 +12,7 @@ At each farm, a blacklight trap, using continuously operating T15 fluorescent bu
 
 Moths captured the traps are counted and discarded every one to seven days between May and October.
 
-We averaged the trap catches to estimate the monthly average number of moths per trap for the subsequent analyses (see "Count_data_Fig.S1.R", also use this to produce Fig. S1 for the overview of count data). 
+We averaged the trap catches to estimate the monthly average number of moths per trap per night for the subsequent analyses (see "Count_data_Fig.S1.R", also use this to produce Fig. S1 for the overview of count data). 
 
 
 ## Step 2. Environmental data collection
