@@ -34,10 +34,10 @@ The master sheet ("**master.csv**") was served as the input of the subseqeuent m
 
 ## Step 3. Generalized additive mixed modelling (GAM)
 
-We combined insect count data with the environmental variables ("Data_build.R").
+We combined insect count data with the environmental variables ("**Data_build.R**").
 
-This resulting the file ("master.csv") for the subsequent GAM.
+This resulting the file ("**master.csv**") for the subsequent GAM.
 
-In R, we deviced six-stepped modelling ("Model_GAM.R") with each step adding additional complexity in the models. 
+In R, we deviced six-stepped modelling ("**Model_GAM.R**") with each step adding additional complexity in the models. 
 
 
