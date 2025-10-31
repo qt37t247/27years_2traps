@@ -37,9 +37,13 @@ The master sheet ("**master.csv**") was served as the input of the subseqeuent m
 In R, we deviced a five-stepped strategy ("**Model_GAM.R**") to build generalized additive mixed models using the data from Delaware (the training dataset). 
 
 The stepwise strategy comprises five steps, with each step adding complexity to the best model of the previous step: 
+
 In the first and second steps, we investigated how monthly environmental variables alone and combined explain the number of the moth of corn earworm captured. 
+
 In the third step, we added all annual variables to find that the annual environmental variables better explain the insect abundance than the year. 
+
 In the fourth step, we explored the interaction between the type of traps and the environmental variables. 
+
 In the final step, we build our final model to let light intensity interact with light trap while air quality to interact with pheromone trap. 
 
 We used data from New Jersey (the validation dataset) to validate the model with highest quality, as indicated by the lowest value of Akaike information criterion (AIC). 
