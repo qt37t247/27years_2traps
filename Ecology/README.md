@@ -44,7 +44,7 @@ In the third step, we added all annual variables to find that the annual environ
 
 In the fourth step, we explored the interaction between the type of traps and the environmental variables. 
 
-In the final step, we build our final model to let light intensity interact with light trap while air quality to interact with pheromone trap. 
+In the final step, we build our final model to let light intensity interact with the light trap while air quality to interact with the pheromone trap. 
 
 We used data from New Jersey (the validation dataset) to validate the model with highest quality, as indicated by the lowest value of Akaike information criterion (AIC). 
 
