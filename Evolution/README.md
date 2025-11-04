@@ -48,8 +48,10 @@ sbatch SNP_filter.sh
 ```
 
 
-## Step 3. GWAS (under construction...)
+## Step 3. Identification of differnetial genomic regions
 We created a conda environment, named "GWAS", for this step. In this conda environment, we installed:
+
+RAiSD (https://github.com/alachins/raisd)
 
 vcf2gwas (https://github.com/frankvogt/vcf2gwas)
 
