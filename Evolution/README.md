@@ -1,6 +1,6 @@
 # Genome-wide association study
 
-We performed whole genome sequencing on 46 individuals colleted from both blacklight traps and pheromone traps in summer 2024 in Delaware, USA.
+We performed whole genome sequencing on 48 individuals colleted from both blacklight traps and pheromone traps in summer 2024 in Delaware, USA.
 
 Raw reads of whole genome resequencing are deposited in NCBI under Bioproject PRJNA1216269
 
@@ -23,11 +23,11 @@ mamba activate snakemake-env
 git clone https://github.com/harvardinformatics/snpArcher.git
 ```
 
-The sample information is in /config/samples.csv. You can fill the "BioProject" column with PRJNA1216269 to direct access the reads.
+The sample information is in /config/samples.csv (see "**samples.csv**" for this project). You can fill the "BioProject" column with PRJNA1216269 to direct access the reads.
 
-Adjust parameters in /profiles/slrum/config.yaml to optimize your capacity in slurm scheduler. 
+Adjust parameters in /profiles/slrum/config.yaml (see "**config.yaml**" for the parameters we used for this project) to optimize your capacity in slurm scheduler. 
 
-Submit the slrum job ("CEW.sh").
+Submit the slrum job ("**CEW.sh**").
 ```bash
 sbatch CEW.sh
 ```
@@ -42,13 +42,7 @@ bcftools (https://samtools.github.io/bcftools/)
 
 plink (https://zzz.bwh.harvard.edu/plink/)
 
-pixy (https://pixy.readthedocs.io/en/latest/)
-
-admixture (https://dalexander.github.io/admixture/)
-
-PopLDdecay (https://github.com/hewm2008/PopLDdecay)
-
-Run these analyses using the code in "SNP_filter.sh"
+Run these analyses using the code in "**SNP_filter.sh**"
 ```bash
 sbatch SNP_filter.sh
 ```
