@@ -35,9 +35,6 @@ We used Genome assembly ilHelZeax1.1 (Genbank Accession: GCA_022581195.1) as the
 
 
 
-## Acknowlegement 
-
-
 
 ## Contact
 tangbenjamin@hotmail.com
