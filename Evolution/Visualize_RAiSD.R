@@ -215,3 +215,16 @@ for (i in seq_len(nrow(phero_out))) {
 }
 
 write.csv(genes_out_phero, "genes_out_phero.csv")
+
+## Visualize the number of genes and the genes shared by two traps with venn diagram
+
+x <- list(
+  light_genes = read.csv("genes_out_light.csv")[,2], 
+  phero_genes = read.csv("genes_out_phero.csv")[,2]
+)
+
+
+library(ggvenn)
+ggvenn(x, fill_color = c("#0073C2FF", "#EFC000FF"), auto_scale = T)
+
+
