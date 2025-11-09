@@ -202,7 +202,6 @@ for (i in seq_len(nrow(light_out))) {
 
 write.csv(genes_out_light, "genes_out_light.csv")
 
-
 genes_out_phero <- data.frame()
 
 for (i in seq_len(nrow(phero_out))) {
@@ -226,3 +225,4 @@ x <- list(
 
 library(ggvenn)
 ggvenn(x, fill_color = c("#0073C2FF", "#EFC000FF"), auto_scale = T)
+
