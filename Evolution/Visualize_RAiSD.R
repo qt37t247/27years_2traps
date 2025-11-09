@@ -226,5 +226,3 @@ x <- list(
 
 library(ggvenn)
 ggvenn(x, fill_color = c("#0073C2FF", "#EFC000FF"), auto_scale = T)
-
-
