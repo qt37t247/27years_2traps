@@ -60,3 +60,5 @@ Run these analyses using the code in "CEW_gwas.sh"
 sbatch CEW_gwas.sh
 ```
 
+Results of RAiSD is processed with the R script "**Visualize_RAiSD.R**". This script uses R package BioMart (https://useast.ensembl.org/info/data/biomart/index.html) to create the list of genes that are located within the genomic regions that exhibit high signal of positive selection. The output is used as input of KEGG pathway analysis. 
+
