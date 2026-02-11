@@ -1,8 +1,11 @@
 # Re-analyses of historical corn earworm samples
 
-We performed whole genome sequencing on 48 individuals colleted from both blacklight traps and pheromone traps in summer 2024 in Delaware, USA.
+We examined signals of positive selection on 35 wild caught individuals colleted from pheromone traps in 2002, 2012, and 2017 in Louisiana, USA.
 
-Raw reads of whole genome resequencing are deposited in NCBI under Bioproject PRJNA1216269
+The original paper for these samples are published in an article titled, "Genome evolution in an agricultural pest following adoption of transgenic crops" in PNAS 2021.
+https://www-pnas-org/doi/abs/10.1073/pnas.2020853118
+
+Raw reads of whole genome resequencing are deposited in NCBI under Bioproject PRJNA751583
 
 We used Genome assembly ilHelZeax1.1 (Genbank Accession: GCA_022581195.1) as the reference genome to map genome-wide single nucleotide polymorphisms. 
 
@@ -23,46 +26,26 @@ mamba activate snakemake-env
 git clone https://github.com/harvardinformatics/snpArcher.git
 ```
 
-The sample information is in /config/samples.csv (see "**samples.csv**" for this project). You can fill the "BioProject" column with PRJNA1216269 to direct access the reads.
+The sample information is in /config/samples.csv (see "**samples.csv**" for this project). 
 
 Adjust parameters in /profiles/slrum/config.yaml (see "**config.yaml**" for the parameters we used for this project) to optimize your capacity in slurm scheduler. 
 
-Submit the slrum job ("**CEW.sh**").
+Submit the slrum job ("**CEW_old.sh**").
 ```bash
 sbatch CEW.sh
 ```
 
-## Step 2. Data filtering and standard population genomic analyses (under construction...)
+## Step 2. Estimate genome-wide signals of positive selection
 
-We created a conda environment, named "T2", for this step. In this conda environment, we installed:
-
-vcftools (https://vcftools.sourceforge.net/)
-
-bcftools (https://samtools.github.io/bcftools/)
-
-plink (https://zzz.bwh.harvard.edu/plink/)
-
-Run these analyses using the code in "**SNP_filter.sh**"
-```bash
-sbatch SNP_filter.sh
-```
-
-
-## Step 3. Identification of differnetial genomic regions
 We created a conda environment, named "GWAS", for this step. In this conda environment, we installed:
 
 RAiSD (https://github.com/alachins/raisd)
 
-vcf2gwas (https://github.com/frankvogt/vcf2gwas)
-
-Run these analyses using the code in "CEW_gwas.sh"
+Run these analyses using the code in "CEW_raisd_old.sh"
 ```bash
-sbatch CEW_gwas.sh
+sbatch CEW_raisd_old.sh
 ```
 
 Results of RAiSD is processed with the R script "**Visualize_RAiSD.R**". 
 
-This script uses R package BioMart (https://useast.ensembl.org/info/data/biomart/index.html) to create the list of genes that are located within the genomic regions that exhibit high signal of positive selection. 
-
-The output is used as input of KEGG pathway analysis. 
 
