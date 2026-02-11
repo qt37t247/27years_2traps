@@ -34,6 +34,7 @@ Raw reads of whole genome resequencing are deposited in NCBI under Bioproject PR
 We used Genome assembly ilHelZeax1.1 (Genbank Accession: GCA_022581195.1) as the reference genome to map genome-wide single nucleotide polymorphisms. 
 
 
+Additionally, we explored the singnals of positive selection in another dataset that include corn earworms collection in 2002, 2012, and 2017 (codes in folder "Historical_samples").
 
 
 ## Contact
