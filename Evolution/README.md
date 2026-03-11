@@ -66,3 +66,24 @@ This script uses R package BioMart (https://useast.ensembl.org/info/data/biomart
 
 The output is used as input of KEGG pathway analysis. 
 
+
+## Step 4. Differential expression analysis on _H. armigera_
+We created a conda environment, named "meta", for this step. In this conda environment, we installed:
+
+NCBI SRA Toolkit (https://github.com/ncbi/sra-tools)
+
+Salmon (https://combine-lab.github.io/salmon/)
+
+Run these analyses using the code in "salmon.sh"
+```bash
+sbatch salmon.sh
+```
+
+Results of differential expression analysis is processed with the R script "**deg.R**". 
+
+The H. armigera transcriptomic data was acquired from a previous study:
+
+Pearce, S. L., Clarke, D. F., East, P. D., Elfekih, S., Gordon, K. H. J., Jermiin, L. S., ... & Wu, Y. D. (2017). Genomic innovations, transcriptional plasticity and gene loss underlying the evolution and divergence of two highly polyphagous and invasive Helicoverpa pest species. BMC biology, 15(1), 63.
+
+Samples used are listed in the file "sra_list.txt" and "metadata.csv".
+
