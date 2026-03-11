@@ -74,12 +74,14 @@ NCBI SRA Toolkit (https://github.com/ncbi/sra-tools)
 
 Salmon (https://combine-lab.github.io/salmon/)
 
-Run these analyses using the code in "salmon.sh"
+DESeq2 (https://github.com/thelovelab/DESeq2)
+
+We first quantified the transcripts using Salmon using the code in "salmon.sh"
 ```bash
 sbatch salmon.sh
 ```
 
-Results of differential expression analysis is processed with the R script "**deg.R**". 
+We performed differential expression analysis and visualized the results using R script "**deg.R**". 
 
 The H. armigera transcriptomic data was acquired from a previous study:
 
