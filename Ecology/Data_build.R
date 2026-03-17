@@ -48,12 +48,10 @@ sampling_weather$plot_year_month <- paste(sampling_weather$State, sampling_weath
 master <- merge(master, sampling_weather[, -(1:4)], by="plot_year_month")
 
 # Add light annual data
-VIIRS <- read.csv("VIIRS_annual.csv")
-DMSP <- read.csv("DMSP_VIIRS.csv")
-light <- rbind(DMSP[,-1], VIIRS[,-1])
+light <- read.csv("VIIRS-DNB.csv")
 
-xx <- as.matrix(light[1:28, 1:46])
-colnames(xx) <- colnames(light)[1:46]
+xx <- as.matrix(light[1:28, 2:47])
+colnames(xx) <- colnames(light)[2:47]
 row.names(xx) <- light$year
 lightx <- data.frame(year=rep(row.names(xx),ncol(xx)),
                       plot=rep(colnames(xx),each=nrow(xx)),
