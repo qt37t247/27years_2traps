@@ -27,73 +27,35 @@ VIIRS <- read.csv("VIIRS.csv")
 DMSP <- read.csv("DMSP.csv")
 row.names(VIIRS) <- VIIRS$Farm
 row.names(DMSP) <- DMSP$Farm
-VIIRS <- VIIRS[, -c(130:131)]
-DMSP <- DMSP[, -c(18:19)]
+VIIRS <- VIIRS[, -c(1:3)]
+VIIRS <- VIIRS[, -c(12:22)]
+DMSP <- DMSP[, -c(1:3)]
 
-colfunc <- colorRampPalette(c("red", "black"))
+VIIRS <- as.data.frame(t(VIIRS))
+DMSP <- as.data.frame(t(DMSP))
 
-plot(-1, xlim=c(0, 129), ylim=c(min(VIIRS), max(VIIRS)), col="white")
-for (i in 1:129) {
-  points(rep(i, 46), VIIRS[, i])
-  points(rep(i, 46), VIIRS[, i], col=colfunc(12)[i%%12])
-}
+VIIRS$year <- 2014:2024
 
 
-VIIRS_annual <- data.frame(matrix(nrow = 11, ncol = 46))
-row.names(VIIRS_annual) <- 2014:2024
-colnames(VIIRS_annual) <- row.names(VIIRS)
-
-for (i in 1:46) {
-  
-  for (j in 1:10) {
-    
-    VIIRS_annual[j, i] <- mean(as.numeric(VIIRS[i, (12*j-11):(12*j)]))  
-    
-  }
-  
-}
-
-for (i in 1:46) {
-    
-    VIIRS_annual[11, i] <- mean(as.numeric(VIIRS[i, 120:129]))  
-    
-}
-
-VIIRS_annual$year <- 2014:2024
-
-# tried to extrapolate with linear regression
-#VIIRS_predict <- data.frame(matrix(nrow = 17, ncol = 47))
-#row.names(VIIRS_predict) <- 1997:2013
-#colnames(VIIRS_predict) <- colnames(VIIRS_annual)
-#VIIRS_predict$year <- 1997:2013
-
-#for (i in 1:46){
-  
-#  VIIRS_predict[, i] <- lm(VIIRS_annual[, i] ~ VIIRS_annual$year)$coefficients[1] + lm(VIIRS_annual[, i] ~ VIIRS_annual$year)$coefficients[2]*VIIRS_predict$year
-  
-#}
-
-# Also used equations to convert DMSP to VIIRS
-
-DMSP_VIIRS <- as.data.frame(t(DMSP*0.1249074+0.157486))
+DMSP_VIIRS <- as.data.frame(DMSP*0.1249074+0.157486)
 DMSP_VIIRS$year <- 1997:2013
 
 colfunc <- colorRampPalette(c("red", "black", "green"))
 
-plot("Light", xlim=c(1997, 2025), ylim=c(min(DMSP_VIIRS[,-47]), max(VIIRS_annual[,-47])))
+plot("Light", xlim=c(1997, 2025), ylim=c(min(DMSP_VIIRS[,-47]), max(VIIRS[,-47])))
 
 for (i in 1:46){
   
-  points(VIIRS_annual$year, VIIRS_annual[,i], cex=1, pch=19, col=colfunc(46)[i])
+  points(VIIRS$year, VIIRS[,i], cex=1, pch=19, col=colfunc(46)[i])
   #points(VIIRS_predict$year, VIIRS_predict[,i], cex=1, pch=21, col=colfunc(18)[i])
   points(DMSP_VIIRS$year, DMSP_VIIRS[,i], cex=1, pch=17, col=colfunc(46)[i])
   #abline(lm(VIIRS_annual[,i] ~ VIIRS_annual$year), col=colfunc(18)[i]) 
   
 }
 
-legend("topleft", legend=colnames(VIIRS_annual)[1:46], col=colfunc(46), pch=19, bty="n",ncol=3,cex=0.7,pt.cex=0.7)
+legend("topleft", legend=colnames(VIIRS)[1:46], col=colfunc(46), pch=19, bty="n",ncol=3,cex=0.7,pt.cex=0.7)
 
-write.csv(VIIRS_annual, "VIIRS_annual.csv")
+write.csv(VIIRS, "VIIRS_annual.csv")
 
 #write.csv(light_predict, "light_predict.csv")
 
@@ -103,24 +65,12 @@ write.csv(DMSP_VIIRS, "DMSP_VIIRS.csv")
 ########################################## Habitat (EVI) ########################################
 EVI <- read.csv("EVI.csv")
 row.names(EVI) <- EVI$Farm
-EVI <- EVI[, -c(573:574)]
-
-colfunc <- colorRampPalette(c("red", "black"))
-
-plot(-2000, xlim=c(0, 572), ylim=c(min(EVI, na.rm = T), max(EVI, na.rm = T)))
-for (i in 21:572) {
-  points(rep(i, 46), EVI[, i])
-  points(rep(i, 46), EVI[, i], col=colfunc(23)[i%%23])
-}
-for (i in 1:20) {
-  points(rep(i, 46), EVI[, i])
-  points(rep(i, 46), EVI[, i], col=colfunc(23)[i%%23])
-}
+EVI <- EVI[, -c(1:3)]
 
 # To make it 25 data points per year for 25 years 
-EVI_makeup <- data.frame(matrix(nrow = 46, ncol = 3))
+EVI_makeup <- data.frame(matrix(nrow = 46, ncol = 1))
 row.names(EVI_makeup) <- row.names(EVI)
-colnames(EVI_makeup) <- c("empty2000_0101", "empty2000_0115", "empty2000_0201")
+colnames(EVI_makeup) <- c("empty2000_01")
 EVI_complete <- cbind(EVI_makeup, EVI)
 
 EVI_month <- data.frame(matrix(nrow = 25*5, ncol = 48))
@@ -131,11 +81,11 @@ for (i in 1:46) {
    
   for (j in 1:25) {
     
-   EVI_month[5*j-4, i+2] <- mean(as.numeric(EVI_complete[i, (23*j-14):(23*j-13)]), na.rm = TRUE)  
-   EVI_month[5*j-3, i+2] <- mean(as.numeric(EVI_complete[i, (23*j-12):(23*j-11)]), na.rm = TRUE)
-   EVI_month[5*j-2, i+2] <- mean(as.numeric(EVI_complete[i, (23*j-10):(23*j-9)]), na.rm = TRUE)
-   EVI_month[5*j-1, i+2] <- mean(as.numeric(EVI_complete[i, (23*j-8):(23*j-7)]), na.rm = TRUE)
-   EVI_month[5*j, i+2] <- mean(as.numeric(EVI_complete[i, (23*j-6):(23*j-5)]), na.rm = TRUE)
+   EVI_month[5*j-4, i+2] <- EVI_complete[i, 12*j-7]
+   EVI_month[5*j-3, i+2] <- EVI_complete[i, 12*j-6]
+   EVI_month[5*j-2, i+2] <- EVI_complete[i, 12*j-5]
+   EVI_month[5*j-1, i+2] <- EVI_complete[i, 12*j-4]
+   EVI_month[5*j, i+2] <- EVI_complete[i, 12*j-3]
 
      }
    
