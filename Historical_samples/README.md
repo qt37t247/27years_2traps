@@ -32,7 +32,7 @@ Adjust parameters in /profiles/slrum/config.yaml (see "**config.yaml**" for the 
 
 Submit the slrum job ("**CEW_old.sh**").
 ```bash
-sbatch CEW.sh
+sbatch CEW_old.sh
 ```
 
 ## Step 2. Estimate genome-wide signals of positive selection
