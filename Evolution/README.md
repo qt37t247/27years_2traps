@@ -32,6 +32,10 @@ Submit the slrum job ("**CEW.sh**").
 sbatch CEW.sh
 ```
 
+!!!The analyses was done with Snakemake v1, please consider modify files according to the migration guide: 
+https://snparcher.readthedocs.io/en/latest/v2-migration.html
+
+
 ## Step 2. Data filtering and standard population genomic analyses (under construction...)
 
 We created a conda environment, named "T2", for this step. In this conda environment, we installed:
